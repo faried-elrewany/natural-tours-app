@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  /* **** ليه كاتبينه في البادي  */
+  line-height: 1.7;
+  color: #777;
+  font-weight: 400;
+  padding: 3rem;
+}
+.primary-heading {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  &--first {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    font-weight: 500;
+    animation: moveInLeft 1s ease-out;
+    -webkit-animation: moveInLeft 1s ease-out;
+  }
+  &--second {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 1.2rem;
+    animation: moveInRight 1s ease-out;
+    -webkit-animation: moveInRight 1s ease-out;
+  }
+}
+.secondery-heading {
+  font-weight: 600;
+  background: linear-gradient(to right, $lightGreen, $darkGreen);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3.2rem;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  display: inline-block;
+  letter-spacing: 2px;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.05);
+    -webkit-transform: skewY(2deg) skewX(15deg) scale(1.05);
+    -moz-transform: skewY(2deg) skewX(15deg) scale(1.05);
+    -ms-transform: skewY(2deg) skewX(15deg) scale(1.05);
+    -o-transform: skewY(2deg) skewX(15deg) scale(1.05);
+    text-shadow: 0.1rem 1.5rem 2rem rgba($black, 0.6);
+    letter-spacing: 0.4rem;
+  }
+}
+.third-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+.about-text {
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+// .about-text:not(:last-child) {
+//   margin-bottom: 3rem;
+// }

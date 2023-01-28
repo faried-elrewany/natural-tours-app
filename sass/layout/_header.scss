@@ -1,0 +1,44 @@
+.header {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($lightGreen, 0.8),
+      rgba($darkGreen, 0.8)
+    ),
+    url(../img/hero.jpg);
+  /*لمابتقولهتوتوبليفتيعنييروحللتوبليفتوهيبدامنالاتجاهاملعاكسيعنيهيبدامنتحتيمين*/
+  height: 95vh;
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  /*ليهعملنهاتوبوانتممكنتغيرهاا
+  ستخدمالكلامدهفيالصورود
+  هلمابتطلعوتنزلبيتغيرفدهممكنيكوناليبتدورعليه*/
+
+  /**/
+  &__logo--box {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+  }
+  &__logo {
+    height: 4rem;
+  }
+  &__text--box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    color: $white;
+    text-align: center;
+    /* 
+    حتة الاربعين في المية دي تبع العنصر نفسه ان هو متسنتر بغض النظر عن البوزيشن بتاعه 
+    يعني هو ف يالنص بغض لنظر هو فين  */
+    /* باك فيس فيزابليتي يفضل تستخدمها مع كل الانيميشنز بتاعتك علشان تدي شكل سموز لما بتيجي تعمل انميشن علي عنصر احيانا تحس انه طلع او نزل لفوق شوية 
+    وده مش معروف سببه بس التريك بتاعت باك فيس فيزابليتي بتلغيه 
+     */
+  }
+}
