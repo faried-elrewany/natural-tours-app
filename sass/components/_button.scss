@@ -1,134 +1,96 @@
 .btn {
-  &,
-  &:link,
-  &:visited {
-    display: inline-block;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    box-shadow: 0 1rem 2rem rgba($black, 0.2);
-    margin: 4rem;
-    text-transform: uppercase;
-    border-radius: 1000px;
-    -webkit-border-radius: 1000px;
-    -moz-border-radius: 1000px;
-    -ms-border-radius: 1000px;
-    -o-border-radius: 1000px;
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
 
-    font-size: 1.6rem;
-    transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    position: relative;
-
-    animation-fill-mode: backwards;
-    border: none;
-    cursor: pointer;
-
-    /*احيانا بيبقي العنصر ظاهر وبعدها يدخل في الاننيميشن بعد الديلاي فانت مثلا عايزه يبدا بالحالة الي فيها زيرو ف الميه ف ياللانيميشن فايما تحط البروبرتيس دي  وبتتحط جوه البيرنت او العنصر الاصلي جوه العنصر او انك تستخدم الانيمكيشن فيل موود  */
-  }
-
-  &:hover {
-    transform: translateY(-3px);
-    -webkit-transform: translateY(-3px);
-    -moz-transform: translateY(-3px);
-    -ms-transform: translateY(-3px);
-    -o-transform: translateY(-3px);
-    &::after {
-      transform: scale(1.5);
-      -webkit-transform: scale(1.5);
-      -moz-transform: scale(1.5);
-      -ms-transform: scale(1.5);
-      -o-transform: scale(1.5);
-      opacity: 0;
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
     }
-  }
-  &:active {
-    transform: translateY(-1px);
-    -webkit-transform: translateY(-1px);
-    -moz-transform: translateY(-1px);
-    -ms-transform: translateY(-1px);
-    -o-transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    /* 
-  لما تيجي تهوفر او تقف ع عنصر وعايزه كانه بيقرب اقسم قيمة الشادو ع الاتنين  */
-  }
-  &--white {
-    background-color: $white;
-    color: $black;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
 
-    &::after {
-      background-color: $white;
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
     }
-  }
-  &--green {
-    background-color: $green;
-    color: $white;
-    &::after {
-      background-color: $green;
+    
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
     }
-  }
-  &::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 1000px;
-    -webkit-border-radius: 1000px;
-    -moz-border-radius: 1000px;
-    -ms-border-radius: 1000px;
-    -o-border-radius: 1000px;
-    z-index: -1;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    /* التريك هنا في الاوباستي انها واخده ترانسيشن فكل حاجه هتتعمل وبعدين تختفي يعني الاختفاء هيتم علي نص ثانيه مش مره واحده لو مره واحده مش هيظهر اصلا  */
-  }
+    
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+    
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+    
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
 }
 
-.about-btn {
-  &:link,
-  &:visited {
-    font-size: $default-font-size;
-    color: $green;
-    display: inline-block;
-    text-decoration: none;
-    border-bottom: 1px solid $green;
-    padding: 3px;
-    transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-  }
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+    }
 
-  &:hover {
-    background-color: $green;
-    color: $white;
-    box-shadow: 0 1rem 2rem rgba($black, 0.15);
-    transform: translateY(-2px);
-    -webkit-transform: translateY(-2px);
-    -moz-transform: translateY(-2px);
-    -ms-transform: translateY(-2px);
-    -o-transform: translateY(-2px);
-  }
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+    }
 
-  &:active {
-    box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-  }
-}
-.btn-animation {
-  animation: moveInBottom 1s ease-out 1s;
-  -webkit-animation: moveInBottom 1s ease-out 1s;
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
+    }
 }

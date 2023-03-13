@@ -1,104 +1,86 @@
-.story-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 8rem;
-  .story {
-    max-width: 70%;
-    background-color: rgba($white, 0.4);
-    transform: skewX(-10deg);
-    -webkit-transform: skewX(-10deg);
-    -moz-transform: skewX(-10deg);
-    -ms-transform: skewX(-10deg);
-    -o-transform: skewX(-10deg);
-    // min-height: 30rem;
-    // height: 30rem;
-    padding: 6rem;
-    &__figure {
-      position: relative;
-      transform: skewX(10deg);
-      -webkit-transform: skewX(10deg);
-      -moz-transform: skewX(10deg);
-      -ms-transform: skewX(10deg);
-      -o-transform: skewX(10deg);
-      //overflow: hidden;
-      width: 15rem;
-      height: 15rem;
-      float: left;
-      shape-outside: circle(50% at 50% 50%);
-      clip-path: circle(50% at 50% 50%);
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
       -webkit-clip-path: circle(50% at 50% 50%);
-      margin-right: 2rem;
-      img {
-        height: 100%;
-        width: 100%;
-        //float: left;
+      clip-path: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
-        transform: scale(1.5);
-        -webkit-transform: scale(1.5);
-        -moz-transform: scale(1.5);
-        -ms-transform: scale(1.5);
-        -o-transform: scale(1.5);
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+      -webkit-transform: translateX(-3rem) skewX(0);
+      -moz-transform: translateX(-3rem) skewX(0);
+      -ms-transform: translateX(-3rem) skewX(0);
+      -o-transform: translateX(-3rem) skewX(0);
+    }
+  }
 
-        transition: all 0.4s;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -ms-transition: all 0.4s;
-        -o-transition: all 0.4s;
-      }
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
     }
-    &-heading {
-      margin-bottom: 1.5rem;
-    }
-    h3 {
-      text-transform: capitalize;
-    }
-    p {
-      font-size: 1.4rem;
-      // font-weight: 300;
-    }
-    &__cap {
-      position: absolute;
-      color: $white;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      font-size: 1.6rem;
-      text-align: center;
-      opacity: 0;
-      transform: translate(-50%, 0%);
-      -webkit-transform: translate(-50%, 0%);
-      -moz-transform: translate(-50%, 0%);
-      -ms-transform: translate(-50%, 0%);
-      -o-transform: translate(-50%, 0%);
-      transition: all 0.4s;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -ms-transition: all 0.4s;
-      -o-transition: all 0.4s;
-    }
-    &:hover .story__cap {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-    }
-    &:hover img {
-      transform: scale(1);
-      -webkit-transform: scale(1);
-      -moz-transform: scale(1);
-      -ms-transform: scale(1);
-      -o-transform: scale(1);
-      filter: blur(3px) brightness(80%);
-      -webkit-filter: blur(3px) brightness(80%);
-    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+    -webkit-filter: blur(3px) brightness(80%);
   }
 }

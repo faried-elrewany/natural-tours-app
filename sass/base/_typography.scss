@@ -1,67 +1,86 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap");
 body {
-  font-family: "Poppins", sans-serif;
-  /* **** ليه كاتبينه في البادي  */
-  line-height: 1.7;
-  color: #777;
-  font-weight: 400;
-  padding: 3rem;
-}
-.primary-heading {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  &--first {
-    display: block;
-    font-size: 6rem;
-    letter-spacing: 3.5rem;
-    font-weight: 500;
-    animation: moveInLeft 1s ease-out;
-    -webkit-animation: moveInLeft 1s ease-out;
-  }
-  &--second {
-    display: block;
-    font-size: 2.4rem;
+    font-family: "Lato", sans-serif;
     font-weight: 400;
-    letter-spacing: 1.2rem;
-    animation: moveInRight 1s ease-out;
-    -webkit-animation: moveInRight 1s ease-out;
-  }
-}
-.secondery-heading {
-  font-weight: 600;
-  background: linear-gradient(to right, $lightGreen, $darkGreen);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  font-size: 3.2rem;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  display: inline-block;
-  letter-spacing: 2px;
-
-  &:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.05);
-    -webkit-transform: skewY(2deg) skewX(15deg) scale(1.05);
-    -moz-transform: skewY(2deg) skewX(15deg) scale(1.05);
-    -ms-transform: skewY(2deg) skewX(15deg) scale(1.05);
-    -o-transform: skewY(2deg) skewX(15deg) scale(1.05);
-    text-shadow: 0.1rem 1.5rem 2rem rgba($black, 0.6);
-    letter-spacing: 0.4rem;
-  }
-}
-.third-heading {
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin-bottom: 3rem;
-}
-.about-text {
-  font-size: 1.6rem;
-  margin-bottom: 3rem;
+    /*font-size: 16px;*/
+    line-height: 1.7;
+    color: $color-grey-dark;
 }
 
-// .about-text:not(:last-child) {
-//   margin-bottom: 3rem;
-// }
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-family: 5rem;
+        }
+        /*
+        animation-delay: 3s;
+        animation-iteration-count: 3;
+        */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
+    }
+}
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+    transition: all .2s;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
